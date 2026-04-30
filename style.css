@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #cfefff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 50px 40px;  
+    border-radius: 12px;
+    width: 400px;        
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 26px;
+}
+
+h3 {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #666;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    background-color: #87cefa;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #6bbbe8;
+}
+
+.password-box {
+    position: relative;
+}
+
+.password-box span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 12px;
+    color: #555;
+}
+
+.divider {
+    margin: 20px 0;
+    font-size: 12px;
+    color: gray;
+}
+
+a {
+    color: #87cefa;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+#otpSection {
+    margin-top: 15px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab-buttons button {
+    width: 48%;
+    background-color: #e0f3ff;
+    color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.tab-buttons button:hover {
+    background-color: #b6e0ff;
+}
+
+.tab-buttons button.active {
+    background-color: #87cefa;
+    color: white;
+}
+/* ========================= */
+/* HOME PAGE */
+/* ========================= */
+
+.home-body{
+background:#cfefff;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+font-family:Arial, sans-serif;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:white;
+box-shadow:0 3px 8px rgba(0,0,0,0.05);
+}
+
+.logo{
+font-weight:bold;
+font-size:20px;
+}
+
+.menu a{
+margin-left:20px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.menu a:hover{
+color:#87cefa;
+}
+
+.hero{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+}
+
+.hero-card{
+background:white;
+padding:40px;
+border-radius:12px;
+max-width:600px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.hero-card h1{
+margin-bottom:15px;
+}
+
+.hero-buttons{
+margin-top:25px;
+}
+
+.btn{
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+margin:5px;
+display:inline-block;
+}
+
+.primary{
+background:#87cefa;
+color:white;
+}
+
+.primary:hover{
+background:#6bbbe8;
+}
+
+.outline{
+border:2px solid #87cefa;
+color:#87cefa;
+}
+
+.outline:hover{
+background:#87cefa;
+color:white;
+}
+
+footer{
+text-align:center;
+padding:15px;
+background:white;
+font-size:14px;
+}

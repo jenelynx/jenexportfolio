@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WS101 · Jenelyn Sunido</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+                  url("https://i.pinimg.com/1200x/b3/be/3a/b3be3a3d7253c5e0d796574cae5a3391.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 70px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #006080;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #006080;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .logout {
+      background: #00ace6;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .home {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 50px 10px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .cards-wrapper {
+      width: 100%;
+      max-width: 1300px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .cards-row {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 35px;
+      width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+
+    .card h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #006080;
+      text-align: center;
+      border-left: 6px solid #00ace6;
+      padding-left: 15px;
+      flex-shrink: 0;
+    }
+
+    .card-content {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    /* persona details */
+    .detail-block {
+      margin-bottom: 16px;
+    }
+
+    .detail-label {
+      font-weight: 700;
+      color: #006080;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .detail-text {
+      color: #334155;
+      line-height: 1.6;
+      font-size: 15px;
+      padding-left: 8px;
+    }
+
+    /* journey stage */
+    .journey-stage {
+      background: #f4f9fd;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+      border-left: 6px solid #00ace6;
+    }
+
+    .journey-stage:last-child {
+      margin-bottom: 0;
+    }
+
+    .journey-stage h3 {
+      font-size: 20px;
+      color: #006080;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .journey-stage p {
+      font-size: 14px;
+      color: #2d4e63;
+      margin: 6px 0;
+      line-height: 1.5;
+    }
+
+    .journey-stage strong {
+      color: #0b4f6c;
+    }
+
+    /* ----- BUTTON ROW (mirrors card layout, button under journey map) ----- */
+    .button-row {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .button-col {
+      width: 500px;                /* same as card width */
+    }
+
+    .button-col:first-child {
+      /* empty column – keeps alignment */
+    }
+
+    .button-col:last-child {
+      display: flex;
+      justify-content: flex-end; /* button aligned to left inside this column */
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e1f0f7;
+      color: #006080;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 10px 26px;
+      border-radius: 60px;
+      border: 1px solid #b9ddf5;
+      box-shadow: 0 4px 12px rgba(0,100,130,0.15);
+      transition: 0.2s;
+    }
+
+
+
+    footer {
+      background: #006080;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Jenelyn Sunido</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="project.html">Project</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="logout" onclick="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="home">
+    <div class="cards-wrapper">
+      <div class="cards-row">
+        <!-- PERSONA CARD -->
+        <div class="card">
+          <h2>👤 User Persona · Marc Aguinaldo</h2>
+          <div class="card-content">
+            <div class="detail-block">
+              <span class="detail-label">📌 Basic Info</span>
+              <span class="detail-text">19 years old · Male · College Student</span>
+              <span class="detail-text" style="margin-top:4px;">Balingog East Guimba, Nueva Ecija</span>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">🎯 Goals</span>
+              <span class="detail-text">Finish assignments on time, keep track of school tasks, avoid forgetting deadlines.</span>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">⚠️ Pain Points</span>
+              <span class="detail-text">Forgets due dates, loses track of assignments, stressed with many tasks, hard to wake up early.</span>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">💪 Motivations</span>
+              <span class="detail-text">Stay on top of schoolwork, feel less stressed, have a clear daily plan.</span>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">📱 Technology</span>
+              <span class="detail-text">Smartphone (reminders, notes), laptop (assignments, coding).</span>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">🌞 Typical Day</span>
+              <span class="detail-text">Attends classes, notes tasks, works in afternoon but sometimes forgets priorities; checks deadlines at night.</span>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">🧩 Needs</span>
+              <span class="detail-text">Clear class schedule, deadline reminders, easy access to notes/files/announcements in one place.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOURNEY MAP CARD -->
+        <div class="card">
+          <h2>🗺️ User Journey Map</h2>
+          <div class="card-content">
+            <div class="journey-stage">
+              <h3>Awareness</h3>
+              <p><strong>Touchpoints:</strong> Class announcements, group chat, syllabus.</p>
+              <p><strong>Emotions:</strong> Confused / anxious</p>
+              <p><strong>Pain Points:</strong> Sometimes doesn't know all tasks on time.</p>
+              <p><strong>Opportunities:</strong> Send reminders or notification about new assignments.</p>
+            </div>
+            <div class="journey-stage">
+              <h3>Consideration</h3>
+              <p><strong>Touchpoints:</strong> Check schedule, class materials, apps.</p>
+              <p><strong>Emotions:</strong> Overwhelmed, stressed</p>
+              <p><strong>Pain Points:</strong> Feels unsure which task to do first.</p>
+              <p><strong>Opportunities:</strong> Provide a simple task list sorted by priority or deadline.</p>
+            </div>
+            <div class="journey-stage">
+              <h3>Purchase (Decision)</h3>
+              <p><strong>Touchpoints:</strong> Decide which assignment to start.</p>
+              <p><strong>Emotions:</strong> Hesitant, stressed</p>
+              <p><strong>Pain Points:</strong> Hard to choose where to begin.</p>
+              <p><strong>Opportunities:</strong> Suggest daily or weekly plan for tasks.</p>
+            </div>
+            <div class="journey-stage">
+              <h3>Use</h3>
+              <p><strong>Touchpoints:</strong> Works on assignment using phone or notes.</p>
+              <p><strong>Emotions:</strong> Focused but sometimes tired.</p>
+              <p><strong>Pain Points:</strong> Can forget tasks or lose track of progress.</p>
+              <p><strong>Opportunities:</strong> Connect tasks across devices, give progress tracking.</p>
+            </div>
+            <div class="journey-stage">
+              <h3>Support</h3>
+              <p><strong>Touchpoints:</strong> Reviews lessons, submits work, checks if done.</p>
+              <p><strong>Emotions:</strong> Relieved but tired.</p>
+              <p><strong>Pain Points:</strong> Difficulty waking up early, remembering tasks.</p>
+              <p><strong>Opportunities:</strong> Include gentle reminders, alerts, or motivational prompts.</p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end cards-row -->
+
+      <!-- BUTTON ROW: two columns matching card widths, button in second column (left-aligned) -->
+      <div class="button-row">
+        <div class="button-col"></div> <!-- empty column under persona card -->
+        <div class="button-col">
+          <a href="prelim.html" class="back-btn">← Back to Prelim</a>
+        </div>
+      </div>
+    </div> <!-- end cards-wrapper -->
+  </section>
+
+  <footer>
+    © 2026 Student Portfolio | Jenelyn B. Sunido
+  </footer>
+
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+    }
+  </script>
+
+</body>
+</html>

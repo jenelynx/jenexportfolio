@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimedia Projects | Jenelyn Sunido</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* ===== BACKGROUND ===== */
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+        url("https://i.pinimg.com/1200x/b3/be/3a/b3be3a3d7253c5e0d796574cae5a3391.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== NAVBAR - ORIGINAL STYLE ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 70px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #006080;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #006080;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .logout {
+      background: #00ace6;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    /* ===== BACK BUTTON - SA GILID ===== */
+    .back-button {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+
+    .back-button a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: #00ace6;
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #007bb3;
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ===== MAIN SECTION ===== */
+    .home {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* ===== SINGLE ROW CONTAINER ===== */
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 1300px;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+
+    /* ===== CARD - PINALAKI ===== */
+    .card {
+      background: white;
+      padding: 35px 25px;
+      flex: 1;
+      min-width: 0;
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: #006080;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(0, 172, 230, 0.2);
+      width: 100%;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    /* ===== MEDIA ELEMENTS ===== */
+    .card img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card audio {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .card video {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-caption {
+      font-size: 14px;
+      color: #006080;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #006080;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .container {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .card {
+        flex: 1 1 45%;
+        min-width: 280px;
+      }
+
+      .back-button {
+        left: 10px;
+      }
+
+      .back-button a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 25px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin-left: 15px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .back-button {
+        left: 8px;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+      }
+
+      .back-button a {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== BACK BUTTON - NASA GILID ===== -->
+  <div class="back-button">
+    <a href="project.html" title="Back to Projects">←</a>
+  </div>
+
+  <!-- ===== NAVBAR - ORIGINAL ===== -->
+  <nav>
+    <div class="logo">Jenelyn Sunido</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="project.html">Project</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="logout" onclick="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== MAIN SECTION ===== -->
+  <section class="home">
+    <div class="container">
+
+      <!-- Box 1: Audio Overview -->
+      <div class="card">
+        <h2>🎵 Audio Project Overview</h2>
+        <p>
+          This tutorial introduces the basics of HTML and shows beginners how web pages are structured.
+          Learners will explore elements like headings, paragraphs, links, and images.
+          By the end, learners will have a solid foundation to start building their own web pages.
+        </p>
+      </div>
+
+      <!-- Box 2: Audio Player -->
+      <div class="card">
+        <h2>🎧 Saranggola by Ben&Ben</h2>
+        <img 
+          src="https://t2.genius.com/unsafe/344x344/https%3A%2F%2Fimages.genius.com%2F15c72c24bd553a100c4e3110307cb176.1000x1000x1.png" 
+          alt="Saranggola album art"
+        >
+        <audio controls>
+          <source src="Ben&Ben - Saranggola.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <p class="media-caption">🎶 Relax and enjoy the music</p>
+      </div>
+
+      <!-- Box 3: Video Overview -->
+      <div class="card">
+        <h2>📹 Video Project Overview</h2>
+        <p>
+          This tutorial introduces the basics of HTML and shows beginners how web pages are structured.
+          Learners will explore elements like headings, paragraphs, links, and images.
+          By the end, learners will have a solid foundation to start building their own web pages.
+        </p>
+      </div>
+
+      <!-- Box 4: Video Player -->
+      <div class="card">
+        <h2>▶️ Tutorial in HTML in 5 Minutes</h2>
+        <video controls>
+          <source src="HTML in 5 minutes.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="media-caption">⚡ Quick web development guide</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2026 Jenelyn Sunido | My Educational Portfolio
+  </footer>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>The Ant and the Grasshopper · Jenelyn Sunido</title>
+  <style>
+    /* ===== RESET & GLOBAL ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
+                  url("https://i.pinimg.com/1200x/b3/be/3a/b3be3a3d7253c5e0d796574cae5a3391.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      background: rgba(245, 245, 245, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #006080;
+      letter-spacing: -0.3px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #006080;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav ul li a:hover {
+      color: #0099cc;
+    }
+
+    .logout-link {
+      background: #00ace6;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 172, 230, 0.3);
+      transition: background 0.2s;
+    }
+
+    .logout-link:hover {
+      background: #0088b3;
+    }
+
+    /* ===== MAIN SECTIONS ===== */
+    .home {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* ===== CHOOSE CHAPTER CARD ===== */
+    .choose-card {
+      background: white;
+      padding: 45px 35px;
+      max-width: 720px;
+      width: 95%;
+      text-align: center;
+      border-radius: 28px;
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .choose-card h1 {
+      font-size: 38px;
+      margin-bottom: 18px;
+      color: #006080;
+      font-weight: 700;
+    }
+
+    .choose-card img {
+      width: 260px;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .choose-card img:hover {
+      transform: scale(1.02);
+    }
+
+    .chapter-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .btn {
+      background: #00ace6;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      width: 220px;
+      text-align: center;
+      transition: all 0.25s;
+      box-shadow: 0 8px 18px rgba(0, 172, 230, 0.25);
+      letter-spacing: 0.3px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #007a9e;
+      box-shadow: 0 14px 24px rgba(0, 150, 200, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-outline {
+      background: transparent;
+      border: 2px solid #00ace6;
+      color: #006080;
+      box-shadow: none;
+    }
+
+    .btn-secondary-outline:hover {
+      background: rgba(0, 172, 230, 0.08);
+      color: #004b66;
+    }
+
+    /* ===== STORY CONTAINER ===== */
+    .story-container {
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(14px);
+      max-width: 950px;
+      width: 100%;
+      margin: 25px auto;
+      padding: 35px 45px;
+      border-radius: 34px;
+      box-shadow: 0 30px 55px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .chapter-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 28px 32px;
+      box-shadow: 0 8px 25px rgba(0, 96, 128, 0.08);
+      border: 1px solid rgba(0, 172, 230, 0.15);
+      transition: all 0.2s;
+    }
+
+    .chapter-card:hover {
+      box-shadow: 0 16px 35px rgba(0, 172, 230, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .chapter-card h2 {
+      font-size: 32px;
+      color: #006080;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px dashed #b0e0f0;
+      padding-bottom: 12px;
+    }
+
+    .chapter-card p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #1e3b4f;
+      margin-bottom: 16px;
+      font-weight: 450;
+    }
+
+    .moral-highlight {
+      background: #e6f7ff;
+      border-left: 6px solid #00ace6;
+      padding: 14px 20px;
+      border-radius: 14px;
+      margin: 20px 0 8px;
+      font-weight: 500;
+      color: #004d66;
+    }
+
+    .story-nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-story {
+      padding: 13px 32px;
+      border-radius: 35px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-story-primary {
+      background: #00ace6;
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 172, 230, 0.3);
+    }
+
+    .btn-story-primary:hover {
+      background: #007a9e;
+    }
+
+    .btn-story-secondary {
+      border: 2px solid #00ace6;
+      color: #006080;
+      background: transparent;
+    }
+
+    .btn-story-secondary:hover {
+      background: rgba(0, 172, 230, 0.08);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #004d66;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 25px;
+      }
+      nav ul {
+        justify-content: center;
+        gap: 18px;
+      }
+      .story-container {
+        padding: 25px 20px;
+      }
+      .chapter-card {
+        padding: 22px 18px;
+      }
+      .choose-card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">🌿 Jenelyn Sunido</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="project.html">Project</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="logout-link" onclick="return logoutPrompt()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== CHOOSE CHAPTER SECTION ========= -->
+  <section class="home" id="chooseChapterSection">
+    <div class="choose-card">
+      <h1>📖 Choose a Chapter</h1>
+      <img src="https://www.maplepress.co.in/cdn/shop/files/9789363793613_1_1200x1200.jpg?v=1723440049" 
+           alt="The Ant and the Grasshopper book cover">
+      
+      <div class="chapter-buttons">
+        <a href="#chapter1" class="btn">🌟 Chapter 1</a>
+        <a href="#chapter2" class="btn">❄️ Chapter 2</a>
+        <a href="#chapter3" class="btn">🌤️ Chapter 3</a>
+        <!-- BACK BUTTON → DAPAT MAPUNTA SA PRELIM.HTML -->
+        <a href="prelim.html" class="btn btn-secondary-outline">↩️ Back</a>
+      </div>
+      <p style="margin-top: 20px; color: #334155; font-size: 15px;">
+        Scroll down or click a chapter to read the full story.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== COMBINED CHAPTERS ========= -->
+  <section class="home" id="storyChapters">
+    <div class="story-container">
+      
+      <!-- CHAPTER 1 -->
+      <div class="chapter-card" id="chapter1">
+        <h2>
+          <span>☀️</span> Chapter 1: Summer Fun & Hard Work
+        </h2>
+        <p>In a sunny meadow, Andy the Ant worked hard every day, carrying grains and berries to his cozy home. He hummed a little tune as he prepared for the winter ahead.</p>
+        <p>Nearby, Gary the Grasshopper loved to sing, dance, and enjoy the warm sunshine. "Andy, why do you work so hard?" Gary laughed.</p>
+        <p>"Come play with me! The sun is shining!" Andy shook his head. "I must prepare for winter, Gary. When it's cold, we need food to eat."</p>
+        <p>But Gary just shrugged and continued hopping among the flowers. He spent the summer singing, laughing, and playing.</p>
+      </div>
+
+      <!-- CHAPTER 2 -->
+      <div class="chapter-card" id="chapter2">
+        <h2>
+          <span>❄️</span> Chapter 2: Winter Arrives
+        </h2>
+        <p>Winter came quickly. Snow covered the meadow, and the flowers and berries disappeared.</p>
+        <p>Gary shivered in the cold. "Oh no! I'm hungry and have nothing to eat!"</p>
+        <p>Andy stayed warm in his cozy home, enjoying the food he had stored carefully.</p>
+        <p>Andy kindly invited Gary to share his food, teaching him the value of preparation.</p>
+      </div>
+
+      <!-- CHAPTER 3 -->
+      <div class="chapter-card" id="chapter3">
+        <h2>
+          <span>🌤️</span> Chapter 3: Learning Balance
+        </h2>
+        <p>When the next summer arrived, Gary worked alongside Andy to gather food.</p>
+        <p>This time, he also took time to sing and play, learning to balance work and fun.</p>
+        <p>Andy and Gary became best friends, enjoying sunny days and staying prepared for winter.</p>
+        <div class="moral-highlight">
+          <strong>🌟 Moral:</strong> Hard work and planning are important, but joy and fun complete life.
+        </div>
+      </div>
+
+      <!-- Bottom navigation -->
+      <div class="story-nav-buttons">
+        <a href="#chooseChapterSection" class="btn-story btn-story-secondary">📚 Chapter Menu</a>
+        <a href="home.html" class="btn-story btn-story-secondary">🏠 Home</a>
+        <!-- CLOSE BUTTON → DAPAT MAPUNTA SA PRELIM.HTML -->
+        <a href="prelim.html" class="btn-story btn-story-primary">✨ Close</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Student Portfolio | Jenelyn B. Sunido · The Ant and the Grasshopper
+  </footer>
+
+  <script>
+    function logoutPrompt() {
+      alert("You have been logged out. Thank you for visiting!");
+      return false;
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#chooseChapterSection" || href === "#chapter1" || href === "#chapter2" || href === "#chapter3") {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
